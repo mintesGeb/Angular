@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgbConfig} from "@ng-bootstrap/ng-bootstrap"
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
     </h4>
     <p>Hi guys</p>
     <app-mintes> </app-mintes>
+    <app-exercise></app-exercise>
+    <app-courses></app-courses>
   `,
   styles: [
     `

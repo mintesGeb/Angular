@@ -1,0 +1,38 @@
+<hr />
+<h1>Part 1</h1>
+
+<h1>Angular</h1>
+<h2>3 Authors</h2>
+<div *ngIf="authors.length > 0; then availableCourses; else noCourses"></div>
+<ng-template #availableCourses>
+  <ul>
+    <li *ngFor="let author of authors">{{ author }}</li>
+  </ul>
+</ng-template>
+<ng-template #noCourses>No Items</ng-template>
+<div>
+  <div class="button" [class.active]="viewMode == 'map'">
+    <a (click)="viewMode = 'map'">Map View</a>
+  </div>
+  <div class="button" [class.active]="viewMode == 'list'">
+    <a (click)="viewMode = 'list'">List View</a>
+  </div>
+</div>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<ul>
+  <li *ngFor="let course of courses; index as i; even as isEven">
+    {{ i }} - {{ course.name }}
+    <button (click)="onRemove(course)">Remove</button>
+    <button (click)="onChange(course)">Update</button>
+  </li>
+</ul>
+
+<button (click)="onAdd()">Add Course</button>
+<hr />
+<h1>Part 2</h1>
